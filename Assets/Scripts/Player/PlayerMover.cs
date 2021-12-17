@@ -1,26 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class PlayerMover : MonoBehaviour
+[RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
+public sealed class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private List<Transform> _wayPoints;
-    [SerializeField] private float _speed;
-
     private NavMeshAgent _navigationAgent;
 
-    public event UnityAction OnPointArrived;
-
-    private void Start()
+    private void Awake()
     {
         _navigationAgent = GetComponent<NavMeshAgent>();
-        MoveToPoint();
     }
 
-    public void MoveToPoint()
+    public void MoveToPoint(Vector3 point)
     {
-        _navigationAgent.SetDestination(_wayPoints[1].position);
+        _navigationAgent.SetDestination(point);
+    }
+
+    public void LookAtEnemy(Vector3 direction)
+    {
+        transform.LookAt(direction);
     }
 }

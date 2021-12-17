@@ -1,18 +1,35 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : MonoBehaviour
+public sealed class Pistol : Weapon
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _magazineCapacity;
+    [SerializeField] private float _timeBeetwenShoots;
+    private float _elapsedTime;
+
+
+    private void Start()
     {
-        
+        LoadMagazine(_magazineCapacity);
+        _elapsedTime = _timeBeetwenShoots;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _elapsedTime += Time.deltaTime;
+    }
+
+    public override void Shoot(Vector3 direction)
+    {
+        if (_timeBeetwenShoots <= _elapsedTime)
+        {
+            if (TryGetObject(out GameObject bullet))
+            {
+                bullet.transform.position = BarrelCut.position;
+                bullet.SetActive(true);
+                bullet.GetComponent<Bullet>().Fly(direction);
+                _elapsedTime = 0;
+            }
+        }
     }
 }

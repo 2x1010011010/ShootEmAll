@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class Bullet : MonoBehaviour
+public sealed class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float _flyingTime;
 
-    // Update is called once per frame
-    void Update()
+    public void Destroy()
     {
-        
+        DOTween.KillAll();
+    }
+    public void Fly(Vector3 direction)
+    {
+        transform.DOMove(direction, _flyingTime);
     }
 }

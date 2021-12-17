@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletCollisionHandler : MonoBehaviour
+[RequireComponent(typeof(Bullet))]
+public sealed class BulletCollisionHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Bullet _bullet;
+
+    private void Start()
     {
-        
+        _bullet = GetComponent<Bullet>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider collider)
     {
-        
+        if (collider.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.Die();
+            _bullet.Destroy();
+            Destroy(gameObject);
+        }
     }
 }
