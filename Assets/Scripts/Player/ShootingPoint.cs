@@ -9,8 +9,8 @@ public class ShootingPoint : MonoBehaviour
 
     public int EnemiesCount => _enemiesOnPoint.Count;
     
-    public void RemoveKilled(GameObject enemy)
+    public void RemoveKilled(Enemy enemy)
     {
-        _enemiesOnPoint.Remove(enemy.GetComponent<Enemy>());
+        _enemiesOnPoint.Remove(enemy);
     }
 }
