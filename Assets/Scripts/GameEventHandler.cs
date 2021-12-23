@@ -69,8 +69,7 @@ public sealed class GameEventHandler : MonoBehaviour
             _playerMover.LookAtEnemy(_input.TapPosition);
             _player.PushTrigger(_input.TapPosition);
             _animation.PlayAnimation(_shootingAnimation);
-        }
-        
+        }   
     }
 
     private void OnPointArrived() 

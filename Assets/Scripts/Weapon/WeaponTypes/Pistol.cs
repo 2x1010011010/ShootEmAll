@@ -19,7 +19,7 @@ public sealed class Pistol : Weapon
         _elapsedTime += Time.deltaTime;
     }
 
-    public override void Shoot(Vector3 direction)
+    public override void Shoot(Vector3 targetPoint)
     {
         if (_timeBeetwenShoots <= _elapsedTime)
         {
@@ -27,9 +27,14 @@ public sealed class Pistol : Weapon
             {
                 bullet.transform.position = BarrelCut.position;
                 bullet.SetActive(true);
-                bullet.GetComponent<Bullet>().Fly(direction);
+                bullet.GetComponent<Bullet>().Fly(targetPoint);
                 _elapsedTime = 0;
             }
+        }
+
+        if (_bulletsInMagazine.Count <= 0)
+        {
+            LoadMagazine(_magazineCapacity);
         }
     }
 }
