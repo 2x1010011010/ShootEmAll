@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f354589ae5fe054fa63d8cb2ab64991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flyingTime: 0.5
+  _speed: 450
 --- !u!114 &2289955486935469559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.015485002
-  m_Center: {x: 0, y: 0, z: 0.00026698224}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2199382583640272050
 Rigidbody:
   m_ObjectHideFlags: 0

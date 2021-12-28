@@ -17,8 +17,7 @@ public sealed class BulletCollisionHandler : MonoBehaviour
         if (collider.TryGetComponent<Enemy>(out Enemy enemy))
         {
             enemy.Die();
-            _bullet.Destroy();
-            Destroy(gameObject);
         }
+        _bullet.DestroyBullet();
     }
 }

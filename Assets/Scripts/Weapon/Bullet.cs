@@ -5,14 +5,15 @@ using DG.Tweening;
 
 public sealed class Bullet : MonoBehaviour
 {
-    [SerializeField] float _flyingTime;
+    [SerializeField] float _speed;
 
-    public void Destroy()
+    public void DestroyBullet()
     {
         DOTween.KillAll();
+        Destroy(this.gameObject);
     }
-    public void Fly(Vector3 direction)
+    public void Fly(Vector3 target)
     {
-        transform.DOMove(direction, _flyingTime);
+        transform.DOMove(target, Vector3.Distance(target, transform.position) / _speed);
     }
 }
