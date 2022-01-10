@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 7206332042041722178}
   - component: {fileID: 2812169529426107153}
   - component: {fileID: 2038906519837997063}
+  - component: {fileID: 1437849052104109954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1158,7 +1159,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8043823763935086461
@@ -1173,7 +1174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b447f5ba6ec7041b3fc4d83c76a9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapons: []
+  _weapons:
+  - {fileID: 8043823763674775474}
 --- !u!114 &8043823763935086460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,13 +1200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66e2890217c07e4a969671399e74024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _speed: 0
 --- !u!195 &8043823763935086465
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1253,7 +1248,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.58271027, z: 0}
 --- !u!114 &2038906519837997063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52239aca740f6ff47a1f90f8eaa4ad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1437849052104109954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8043823763935086458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.39044666, y: 0.82210064, z: 0.38915253}
+  m_Center: {x: -0.0031123161, y: 0.34126472, z: 0.0059309006}
 --- !u!1 &8043823763992597990
 GameObject:
   m_ObjectHideFlags: 0

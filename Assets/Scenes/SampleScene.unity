@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.15
+    agentRadius: 0.5
     agentHeight: 2
     agentSlope: 30
-    agentClimb: 0.3
+    agentClimb: 0.6
     ledgeDropHeight: 2
     maxJumpAcrossDistance: 2
     minRegionArea: 10
     manualCellSize: 0
-    cellSize: 0.05
+    cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 1
@@ -8126,6 +8126,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2812169529426107153, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812169529426107153, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
+      propertyPath: m_Center.y
+      value: 0.4511361
+      objectReference: {fileID: 0}
     - target: {fileID: 8043823762348773723, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -8252,14 +8260,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8043823763935086461, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
       propertyPath: _currentWeapon
-      value: 
-      objectReference: {fileID: 934601907}
-    - target: {fileID: 8043823763935086461, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
-      propertyPath: _weapons.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8043823763935086461, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
-      propertyPath: _weapons.Array.data[0]
       value: 
       objectReference: {fileID: 934601907}
     - target: {fileID: 8043823763935086462, guid: d0d1fa81e2591df49b258b77f2d571b2, type: 3}
