@@ -2,31 +2,28 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace BuildEditor
+public static class Build
 {
-    public static class Build
+    private const string PASS = "A2D546CA";
+
+    private static string ProjectFolderPath =>
+        Application.dataPath.Substring(0, Application.dataPath.Length - "Assets/".Length);
+
+    private static void APK()
     {
-        private const string PASS = "A2D546CA";
-
-        private static string ProjectFolderPath =>
-            Application.dataPath.Substring(0, Application.dataPath.Length - "Assets/".Length);
-
-        private static void APK()
+        var buildOptions = new BuildPlayerOptions
         {
-            var buildOptions = new BuildPlayerOptions
-            {
-                scenes = EditorBuildSettings.scenes.Select(s => s.path).ToArray(),
-                target = BuildTarget.Android,
-                locationPathName = $"build/Android/Android.apk"
-            };
-            EditorUserBuildSettings.buildAppBundle = false;
-            EditorUserBuildSettings.androidCreateSymbolsZip = true;
-            PlayerSettings.Android.useCustomKeystore = true;
-            PlayerSettings.Android.keystoreName = $"{Application.dataPath}/BUILD/tarragon.keystore";
-            PlayerSettings.Android.keystorePass = PASS;
-            PlayerSettings.Android.keyaliasName = "tarragon";
-            PlayerSettings.Android.keyaliasPass = PASS;
-            BuildPipeline.BuildPlayer(buildOptions);
-        }
+            scenes = EditorBuildSettings.scenes.Select(s => s.path).ToArray(),
+            target = BuildTarget.Android,
+            locationPathName = $"build/{Application.productName}_{Application.version}.apk"
+        };
+        EditorUserBuildSettings.buildAppBundle = false;
+        EditorUserBuildSettings.androidCreateSymbolsZip = true;
+        PlayerSettings.Android.useCustomKeystore = true;
+        PlayerSettings.Android.keystoreName = $"{Application.dataPath}/BUILD/tarragon.keystore";
+        PlayerSettings.Android.keystorePass = PASS;
+        PlayerSettings.Android.keyaliasName = "tarragon";
+        PlayerSettings.Android.keyaliasPass = PASS;
+        BuildPipeline.BuildPlayer(buildOptions);
     }
 }
