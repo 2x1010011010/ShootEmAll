@@ -23,7 +23,7 @@ jobs:
            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
             targetPlatform: Android
-            buildMethod: Build.APK
+            buildMethod: BuildEditor.Build.APK
       
       - uses: actions/upload-artifact@v2.2.4
         with:
