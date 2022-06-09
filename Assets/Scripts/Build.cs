@@ -15,7 +15,7 @@ public static class Build
         {
             scenes = EditorBuildSettings.scenes.Select(s => s.path).ToArray(),
             target = BuildTarget.Android,
-            locationPathName = $"build/"
+            locationPathName = $"build/Android/Android.apk"
         };
         EditorUserBuildSettings.buildAppBundle = false;
         EditorUserBuildSettings.androidCreateSymbolsZip = true;
