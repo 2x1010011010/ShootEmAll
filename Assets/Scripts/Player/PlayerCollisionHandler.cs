@@ -15,12 +15,13 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.TryGetComponent<ShootingPoint>(out ShootingPoint shootingPoint))
+        if (collider.TryGetComponent(out ShootingPoint _))
             OnPointArrived?.Invoke();
     }
 
     private void OnTriggerStay(Collider collider)
     {
+
         if (collider.TryGetComponent<FinishPoint>(out FinishPoint finishPoint))
             OnFinishPointArrived?.Invoke();
     }
