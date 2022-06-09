@@ -15,10 +15,10 @@ public static class Build
         {
             scenes = EditorBuildSettings.scenes.Select(s => s.path).ToArray(),
             target = BuildTarget.Android,
-            locationPathName = "/build/Android.apk"
+            locationPathName = $"build/{Application.productName}_{Application.version}.apk"
         };
         EditorUserBuildSettings.buildAppBundle = false;
-        EditorUserBuildSettings.androidCreateSymbolsZip = false;
+        EditorUserBuildSettings.androidCreateSymbolsZip = true;
         PlayerSettings.Android.useCustomKeystore = true;
         PlayerSettings.Android.keystoreName = $"{Application.dataPath}/BUILD/tarragon.keystore";
         PlayerSettings.Android.keystorePass = PASS;
