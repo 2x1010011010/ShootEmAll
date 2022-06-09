@@ -21,7 +21,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerStay(Collider collider)
     {
-
         if (collider.TryGetComponent<FinishPoint>(out FinishPoint finishPoint))
             OnFinishPointArrived?.Invoke();
     }
